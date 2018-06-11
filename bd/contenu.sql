@@ -1,11 +1,11 @@
---#############################################################
+--
 --         Script MySQL.
---############################################################# 
+--
 
 
---#############################################################
+--
 -- Table: Administration
---#############################################################
+--
 CREATE TABLE Administration(
         identifiant Varchar (15) NOT NULL ,
         mdp         Varchar (25) NOT NULL
@@ -13,9 +13,9 @@ CREATE TABLE Administration(
 ) ENGINE =InnoDB;
 
 
---#############################################################
+--
 -- Table: Projet
---#############################################################
+--
 
 CREATE TABLE Projet(
         id_projet   Int (5) Auto_increment  NOT NULL COMMENT "S'autoincremente au fur et a mesure"  ,
@@ -31,9 +31,9 @@ CREATE TABLE Projet(
 )ENGINE=InnoDB;
 
 
---#############################################################
+--
 -- Table: Service
---#############################################################
+--
 
 CREATE TABLE Service(
         id_service  Int  Auto_increment  NOT NULL ,
@@ -43,9 +43,9 @@ CREATE TABLE Service(
 )ENGINE=InnoDB;
 
 
---#############################################################
+--
 -- Table: Devis
---#############################################################
+--
 CREATE TABLE Devis(
         id_devis     Int  Auto_increment  NOT NULL ,
         nom_societe  Varchar (25) NOT NULL ,
@@ -57,18 +57,4 @@ CREATE TABLE Devis(
 	,CONSTRAINT Devis_PK PRIMARY KEY (id_devis)
 
 	,CONSTRAINT Devis_Administration_FK FOREIGN KEY (identifiant) REFERENCES Administration(identifiant)
-)ENGINE=InnoDB;
-
-
---#############################################################
--- Table: Realiser
---#############################################################
-
-CREATE TABLE Realiser(
-        id_service  Int NOT NULL ,
-        identifiant Varchar (15) NOT NULL
-	,CONSTRAINT Realiser_PK PRIMARY KEY (id_service,identifiant)
-
-	,CONSTRAINT Realiser_Service_FK FOREIGN KEY (id_service) REFERENCES Service(id_service)
-	,CONSTRAINT Realiser_Administration0_FK FOREIGN KEY (identifiant) REFERENCES Administration(identifiant)
 )ENGINE=InnoDB;
