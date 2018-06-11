@@ -2,7 +2,7 @@
     $host = "localhost";
     $username = "root";
     $password = "";
-    $db = ""; // a completer
+    $db = "maldiBDD"; 
 
 
 // Check if a user is connected
@@ -19,3 +19,4 @@ function redirect($url) {
 function escape($value) {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
 }
+?>
